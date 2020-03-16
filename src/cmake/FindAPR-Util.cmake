@@ -48,5 +48,5 @@ else()
     endif()
 endif()
 
-find_package_handle_standard_args(apr-util DEFAULT_MSG
+find_package_handle_standard_args(APR-Util DEFAULT_MSG
   APR_UTIL_INCLUDE_DIR APR_UTIL_LIBRARIES)
