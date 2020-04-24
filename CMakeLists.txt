@@ -104,7 +104,7 @@ message(STATUS "")
 message(STATUS "log4cxx configuration summary:")
 message(STATUS "")
 
-message(STATUS "  Build type ...................... : ${CMAKE_BUILD_TYPE}")
+message(STATUS "  Build shared library ............ : ${BUILD_SHARED_LIBS}")
 message(STATUS "  Build tests ..................... : ${BUILD_TESTING}")
 message(STATUS "  Install prefix .................. : ${CMAKE_INSTALL_PREFIX}")
 message(STATUS "  C++ compiler .................... : ${CMAKE_CXX_COMPILER}")
