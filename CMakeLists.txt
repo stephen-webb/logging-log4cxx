@@ -3,8 +3,19 @@ include(src/cmake/projectVersionDetails.cmake)
 project(log4cxx VERSION ${log4cxx_VER} LANGUAGES CXX)
 include(CTest)
 
+# define the SO Version of the library. Version of the log4cxx project is subtly different than the version of the library
+# (at least in the past it was project vesion: 0.a.b.c and the library so vesion a.b.c.0
+set(LIBLOG4CXX_LIB_VERSION ${log4cxx_VERSION_MINOR}.${log4cxx_VERSION_PATCH}.${log4cxx_VERSION_TWEAK})
+set(LIBLOG4CXX_LIB_SOVERSION ${log4cxx_VERSION_MINOR})
+
 # FindAPR and FindAPR-util are not provided by APR and APR-Util so source them locally
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/src/cmake")
+
+# Add support for linking statically
+option(BUILD_SHARED_LIBS "Build shared libraries" ON)
+if(NOT BUILD_SHARED_LIBS)
+  set(LOG4CXX_COMPILE_DEFINITIONS LOG4CXX_STATIC)
+endif()
 
 # Find Apache Runtime
 find_package(APR REQUIRED)
@@ -12,11 +23,8 @@ find_package(APR REQUIRED)
 # Find Apache Runtime Utilities
 find_package(APR-Util REQUIRED)
 
-# Add support for linking statically
-option(BUILD_SHARED_LIBS "Build shared libraries" ON)
-if(NOT BUILD_SHARED_LIBS)
-  set(LOG4CXX_COMPILE_DEFINITIONS LOG4CXX_STATIC)
-endif()
+# Find expat for XML parsing
+find_package(EXPAT REQUIRED)
 
 # Building
 add_subdirectory(src)
@@ -118,3 +126,10 @@ message(STATUS "  logchar type .................... : ${LOG4CXX_CHAR}")
 message(STATUS "  Using libESMTP .................. : ${HAS_LIBESMTP}")
 message(STATUS "  ODBC library .................... : ${HAS_ODBC}")
 message(STATUS "  syslog .......................... : ${HAS_SYSLOG}")
+
+if(BUILD_TESTING)
+message(STATUS "Applications required for tests:")
+message(STATUS "  zip ............................. : ${ZIP_APP}")
+message(STATUS "  sed ............................. : ${SED_APP}")
+message(STATUS "  gzip ............................ : ${GZIP_APP}")
+endif(BUILD_TESTING)

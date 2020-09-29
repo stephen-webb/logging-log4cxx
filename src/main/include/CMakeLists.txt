@@ -10,9 +10,6 @@ add_custom_target(configure_log4cxx
   DEPENDS
     ${CMAKE_CURRENT_SOURCE_DIR}/log4cxx/log4cxx.hw
     ${CMAKE_CURRENT_SOURCE_DIR}/log4cxx/private/log4cxx_private.hw
-  BYPRODUCTS
-    ${CMAKE_CURRENT_BINARY_DIR}/log4cxx/log4cxx.h
-    ${CMAKE_CURRENT_BINARY_DIR}/log4cxx/private/log4cxx_private.h
 )
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/log4cxx/version_info.h.in
                ${CMAKE_CURRENT_BINARY_DIR}/log4cxx/version_info.h
@@ -34,8 +31,10 @@ else()
 endif()
 option(LOG4CXX_WCHAR_T "Enable wchar_t API methods" ON)
 option(LOG4CXX_UNICHAR "Enable UniChar API methods" OFF)
+set(INIT_IOS_BASE 0)
 if(APPLE)
 option(LOG4CXX_CFSTRING "Enable CFString API methods, requires Mac OS/X CoreFoundation" OFF)
+set(INIT_IOS_BASE 1)
 endif()
 set(CHAR_API 1)
 foreach(varName WCHAR_T  UNICHAR  CFSTRING )
@@ -110,8 +109,5 @@ add_custom_target(configure_log4cxx
   DEPENDS
     ${CMAKE_CURRENT_SOURCE_DIR}/log4cxx/log4cxx.h.in
     ${CMAKE_CURRENT_SOURCE_DIR}/log4cxx/private/log4cxx_private.h.in
-  BYPRODUCTS
-    ${CMAKE_CURRENT_BINARY_DIR}/log4cxx/log4cxx.h
-    ${CMAKE_CURRENT_BINARY_DIR}/log4cxx/private/log4cxx_private.h
 )
 endif()

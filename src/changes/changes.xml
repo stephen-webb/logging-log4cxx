@@ -24,18 +24,22 @@
 
 	<body>
 		<release	version="0.11.0"
-					date="2020-02-09"
+					date="XXXX-XX-XX"
 					description="Maintenance release.">
+			<action issue="LOGCXX-512" type="fix">cmake and autotools generate different versioned binaries</action>
 			<action issue="LOGCXX-506" type="fix">CachedDateFormat reuses timestamps without updating milliseconds after formatting timestamp with ms == 654</action>
 			<action issue="LOGCXX-503" type="update">Checksums/Signatures don't match for log4cxx binaries</action>
 			<action issue="LOGCXX-502" type="update">appenderattachable.h function doc formatted "incorrectly"</action>
 			<action issue="LOGCXX-500" type="update">Logging in Timing-Critical Applications</action>
 			<action issue="LOGCXX-494" type="fix">Provide a windows build environment for the project by replacing the ant build with a CMake build</action>
 			<action issue="LOGCXX-493" type="fix">Wrong usage of milli- vs. micro- and non- vs. milliseconds in some docs.</action>
+			<action issue="LOGCXX-490" type="fix">conditional expression is constant</action>
 			<action issue="LOGCXX-488" type="fix">Space after log level hides messages</action>
 			<action issue="LOGCXX-484" type="fix">Spelling error s/excute/execute</action>
+			<action issue="LOGCXX-483" type="update">Not able to see hebrew values when logging in log4cxx</action>
 			<action issue="LOGCXX-482" type="fix">Build failure with GCC-6</action>
 			<action issue="LOGCXX-464" type="fix">TimeBasedRollingPolicy should append as configured on rollover</action>
+			<action issue="LOGCXX-455" type="fix">LogLog::setQuietMode(true) does not suppress exception reporting</action>
 			<action issue="LOGCXX-446" type="fix">make install fails, trying to overwrite header files</action>
 			<action issue="LOGCXX-443" type="fix">Return by const reference in Logger::getName()</action>
 			<action issue="LOGCXX-433" type="fix">Autoconf 2.69 needs 'ACLOCAL_AMFLAGS= -I .'</action>
@@ -54,6 +58,7 @@
 			<action issue="LOGCXX-411" type="fix">Crash when logging on multiple threads.</action>
 			<action issue="LOGCXX-400" type="fix">C++11 does not allow char literals with highest bit set unless cast</action>
 			<action issue="LOGCXX-399" type="fix">Non-ascii character output wrong.</action>
+			<action issue="LOGCXX-398" type="fix">Infinite loop in Transcoder::encode(const LogString&amp; src, std::wstring&amp; dst)</action>
 			<action issue="LOGCXX-394" type="fix">Levels are not thread safe</action>
 			<action issue="LOGCXX-388" type="fix">Hierarchy::updateParents loops forever on illegal logger-name like '.logger1'</action>
 			<action issue="LOGCXX-382" type="fix">Mingw build type conversion error</action>
@@ -97,6 +102,7 @@
 			<action issue="LOGCXX-277" type="fix">Reconnection not working for sockets</action>
 			<action issue="LOGCXX-276" type="fix">AndFilter and others defined but not implemented</action>
 			<action issue="LOGCXX-275" type="fix">Headers cannot be included with very strict warning settings</action>
+			<action issue="LOGCXX-273" type="fix">Prevent filenamepatterntestcase from failing in some timezones</action>
 			<action issue="LOGCXX-272" type="update">Apache log4cxx 0.11.0 release</action>
 			<action issue="LOGCXX-271" type="fix">MDC::put will not overwrite existing key value pair</action>
 			<action issue="LOGCXX-270" type="fix">Add ability to compile out logging by logging level.</action>
@@ -107,6 +113,8 @@
 			<action issue="LOGCXX-262" type="fix">socketappendertestcase and xmlsocketappendertestcase not run</action>
 			<action issue="LOGCXX-249" type="fix">Console appender crashes if layout is not set</action>
 
+			<action issue="32" system="GHPR" type="add">Set SONAME in cmake like autotools based buildsystem would do.</action>
+			<action issue="24" system="GHPR" type="add">Implementation of map-based filter.</action>
 			<action issue="21" system="GHPR" type="add">Added support for building log4cxx as a statically linked library on Windows.</action>
 			<action issue="14" system="GHPR" type="add">Replaced ant build with cmake.</action>
 			<action issue="13" system="GHPR" type="add">JSONLayout</action>
