@@ -17,10 +17,6 @@ Detailed build instructions are provided for in both HTML
 and APT format in releases.  The APT sources are 
 available in Git checkouts.
 
-Apache Maven 2:
-site/building/maven.html
-src/site/apt/building/maven.apt
-
 autotools:
 site/building/autotools.html
 src/site/apt/building/autotools.apt
@@ -28,6 +24,10 @@ src/site/apt/building/autotools.apt
 CMake:
 site/building/cmake.html
 src/site/apt/building/cmake.apt
+
+Apache Maven 2:
+site/building/maven.html
+src/site/apt/building/maven.apt
 
 Microsoft Vcpkg:
 site/building/vcpkg.html
